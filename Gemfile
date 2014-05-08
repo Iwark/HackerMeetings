@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0.3'
 gem 'turbolinks'
 
 gem 'devise'
+#omniauth
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3'

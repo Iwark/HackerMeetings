@@ -64,6 +64,7 @@ HackerMeetings::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'hacker-meetings.com' }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -77,4 +78,10 @@ HackerMeetings::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+end
+
+Devise.setup do |config|
+  config.mailer_sender = "iwark02@gmail.com"
+  config.omniauth :facebook, '224852424367041', '8d95e7e68ee1affcec9f25dfd4ad16d8', :scope => 'email,user_birthday', :display => 'popup'
+  # config.omniauth :twitter, '{ID}', '{SECRET}', :display => 'popup'
 end

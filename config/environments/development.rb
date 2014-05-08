@@ -15,6 +15,7 @@ HackerMeetings::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -26,4 +27,10 @@ HackerMeetings::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+end
+
+Devise.setup do |config|
+  config.mailer_sender = "iwark02@gmail.com"
+  config.omniauth :facebook, '290235027797954', '13bfd8b5562fde18c4b6bd31eca18d26', :scope => 'email,user_birthday', :display => 'popup'
+  # config.omniauth :twitter, '{ID}', '{SECRET}', :display => 'popup'
 end
